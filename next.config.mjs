@@ -16,9 +16,6 @@ const withMDX = nextMDX({
 const nextConfig = {
   output: 'export',
 
-  basePath: '/portolio',
-  assetPrefix: '/portolio/',
-
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
 
   images: {
