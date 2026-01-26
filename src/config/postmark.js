@@ -1,11 +1,21 @@
-// var postmark = require('postmark');
-// var client = new postmark.ServerClient(process.env.POSTMARK_SERVER_CLIENT);
-
 // Cliente mock - no hace nada
 const client = {
-  sendEmail: () => Promise.resolve({ Message: 'Email disabled' }),
-  sendEmailWithTemplate: () => Promise.resolve({ Message: 'Email disabled' }),
-  // Agrega otros métodos que uses si es necesario
+  sendEmail: (emailData) => {
+    console.log('Email disabled, would have sent:', emailData);
+    return Promise.resolve({ 
+      Message: 'Email disabled',
+      ErrorCode: 0,
+      MessageID: 'mock-id'
+    });
+  },
+  sendEmailWithTemplate: (emailData) => {
+    console.log('Template email disabled, would have sent:', emailData);
+    return Promise.resolve({ 
+      Message: 'Email disabled',
+      ErrorCode: 0,
+      MessageID: 'mock-id'
+    });
+  },
 };
 
 export default client;
