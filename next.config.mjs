@@ -14,10 +14,18 @@ const withMDX = nextMDX({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+
+  basePath: '/portolio',
+  assetPrefix: '/portolio/',
+
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+
   images: {
     domains: ['images.unsplash.com'],
+    unoptimized: true,
   },
+
   experimental: {
     scrollRestoration: true,
   },
