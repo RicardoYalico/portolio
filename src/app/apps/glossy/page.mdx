@@ -1,0 +1,268 @@
+import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
+import Image from 'next/image';
+import { glossy } from '../../../../public/projects';
+
+export const appData = {
+  industry: 'E-commerce',
+  title: 'Glossy',
+  description: 'Glossy es una plataforma de e-commerce completa con gestión de productos, carrito de compras e inventario administrativo.',
+  image: glossy,
+  images: [
+    '/projects/glossy-catalogo.png',
+    '/projects/glossy-panel.png',
+    '/projects/glossy-inventario.png'
+  ],
+  date: '2024-12',
+  service: 'E-commerce Platform',
+  url: 'https://glossy-web.mimarca.pe/',
+  pathname: '/apps/glossy',
+  framework: 'angular',
+};
+
+export const sections = [
+  { index: 0, title: 'About', id: 'about' },
+  { index: 1, title: 'Challenge', id: 'challenge' },
+  { index: 2, title: 'Solution', id: 'solution' },
+  { index: 3, title: 'Technologies', id: 'technologies' },
+];
+
+export const metadata = {
+  title: `${appData.title}`,
+  description: appData.description,
+};
+
+export const technologies = [
+  {
+    name: 'HTML5',
+    image: '/logos/html5-logo.png',
+  },
+  {
+    name: 'CSS3',
+    image: '/logos/css-logo.png',
+  },
+  {
+    name: 'TypeScript',
+    image: '/logos/ts-logo.png',
+  },
+  {
+    name: 'Angular',
+    image: '/logos/angular-logo.png',
+  },
+  {
+    name: 'TailwindCSS',
+    image: '/logos/tailwindcss-logo.jpg',
+  },
+  {
+    name: 'Java',
+    image: '/logos/java-logo.png',
+  },
+  {
+    name: 'SpringBoot',
+    image: '/logos/sb-logo.png',
+  },
+  {
+    name: 'Maven',
+    image: '/logos/mvn-logo.webp',
+  },
+  {
+    name: 'Python',
+    image: '/logos/python-logo.png',
+  },
+  {
+    name: 'FastAPI',
+    image: '/logos/fa-logo.jpg',
+  },
+  {
+    name: 'PostgreSQL',
+    image: '/logos/postgres-logo.png',
+  },
+  {
+    name: 'OAuth2',
+    image: '/logos/oauth-logo.png',
+  },
+  {
+    name: 'Docker',
+    image: '/logos/docker-logo.png',
+  },
+  {
+    name: 'GitHub',
+    image: '/logos/github-logo.webp',
+  },
+  {
+    name: 'Cloudflare',
+    image: '/logos/cf-logo.webp',
+  },
+  {
+    name: 'Ubuntu',
+    image: '/logos/ubuntu-logo.png',
+  },
+  {
+    name: 'Git',
+    image: '/logos/git-logo.png',
+  },
+];
+
+<Container>
+
+<Border className="my-8" />
+
+  <Section id="challenge">
+    ## Challenge
+
+    Diseñar y desarrollar una plataforma de e-commerce completa que abarque dos áreas principales: experiencia de usuario (catálogo de productos y carrito de compras) y gestión administrativa (inventario y control de productos). El sistema debe cumplir con los siguientes requisitos:
+
+    1. **Frontend de E-commerce:** Visualización de productos, carrito de compras, detalle de productos, banners y secciones especiales por campaña.
+    2. **Panel de Administración:** Sistema de login con autenticación segura para acceder a funciones administrativas.
+    3. **Gestión de Productos:** Crear, editar y eliminar productos, gestionar categorías e imágenes.
+    4. **Servidor de Imágenes:** Sistema de almacenamiento de imágenes similar a S3 para gestionar assets multimedia.
+    5. **Autenticación OAuth2:** Servidor dedicado para autenticación y autorización de usuarios.
+    6. **Infraestructura:** Implementar CI/CD con despliegue automatizado usando Docker y GitHub Actions.
+    7. **Seguridad:** Gestionar rutas públicas y privadas con control de acceso basado en autenticación.
+
+  </Section>
+
+<Border className="my-8" />
+
+<Section id="solution">
+
+## Solution
+
+<AppSolution image='glossy.png' href={appData.url}>
+
+Arquitectura de alto nivel de la plataforma Glossy.
+
+El proyecto está compuesto por 4 aplicaciones principales más un repositorio de orquestación:
+
+**1. Glossy Web (Frontend)** - Aplicación Angular con Tailwind CSS que sirve como interfaz principal:
+- Catálogo de productos con búsqueda y filtros
+- Sistema de carrito de compras
+- Detalle de productos con imágenes y especificaciones
+- Banners y secciones especiales por campaña
+- Portal de administración con login
+- Panel de gestión de productos, categorías e imágenes
+- Rutas públicas (catálogo) y privadas (administración)
+- Dominio: `glossy-web.mimarca.pe`
+
+**2. Glossy Backend** - Servidor Java Spring Boot con Maven que coordina la lógica de negocio:
+- API RESTful para gestión de productos
+- Gestión de inventario
+- Operaciones CRUD de productos y categorías
+- Integración con servidor de imágenes
+- Validación de tokens OAuth2
+- Lógica de negocio del carrito y pedidos
+- Dominio: `glossy-backend-server.mimarca.pe`
+
+**3. Glossy Image Server** - Servidor Python FastAPI dedicado para almacenamiento de imágenes:
+- Sistema de almacenamiento similar a S3
+- Upload y gestión de imágenes de productos
+- Optimización y compresión de imágenes
+- Servicio de CDN para assets multimedia
+- Dominio: `glossy-image-server.mimarca.pe`
+
+**4. Glossy OAuth2 Server** - Servidor Java Spring Boot de autenticación:
+- Implementación completa de OAuth2
+- Gestión de tokens de acceso y refresh
+- Autenticación de usuarios y administradores
+- Control de sesiones
+- Validación de permisos y roles
+- Consumido por Frontend y Backend para proteger rutas
+- Dominio: `glossy-oauth2-server.mimarca.pe`
+
+**5. Docker Compose Repository** - Repositorio de orquestación:
+- Archivo docker-compose.yml centralizado
+- Configuración de red entre contenedores
+- Variables de entorno y secrets
+- Configuración de volúmenes persistentes
+- Scripts de despliegue
+
+<div className="my-12 space-y-8">
+  {appData.images.map((img, index) => (
+    <div key={index} className="flex flex-col lg:flex-row gap-8 items-center">
+      <div className="lg:w-1/2">
+        <h3 className="text-2xl font-semibold text-blue-100 mb-4">
+          {index === 0 && "Catálogo de Productos"}
+          {index === 1 && "Panel de Administración"}
+          {index === 2 && "Gestión de Inventario"}
+        </h3>
+        <p className="text-gray-300">
+          {index === 0 && "Vista principal del catálogo con productos, filtros de búsqueda, carrito de compras y secciones especiales por campaña. Los usuarios pueden navegar fácilmente entre categorías y agregar productos al carrito."}
+          {index === 1 && "Portal administrativo con sistema de autenticación OAuth2. Permite a los administradores gestionar productos, crear y editar categorías, subir imágenes y controlar el inventario completo."}
+          {index === 2 && "Sistema completo de gestión de inventario con estadísticas en tiempo real, control de stock, historial de transacciones y reportes detallados para la toma de decisiones."}
+        </p>
+      </div>
+      <div className="lg:w-1/2">
+        <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-700">
+          <Image
+            src={img}
+            alt={`Glossy Platform Screenshot ${index + 1}`}
+            width={1200}
+            height={800}
+            className="w-full h-auto"
+          />
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<ul role="list" className="mt-6 space-y-8">
+  <li>
+    <span>
+      <strong className="font-semibold text-blue-100">Infraestructura y CI/CD:</strong> Cada proyecto tiene su propio Dockerfile y repositorio en GitHub. Al hacer push a la rama principal, GitHub Actions ejecuta un pipeline que construye la imagen Docker y la publica en Docker Hub. En el servidor Ubuntu 24.04.03, un GitHub Runner self-hosted ejecuta automáticamente el docker-compose pull y restart para desplegar las nuevas versiones.
+    </span>
+  </li>
+  <li>
+    <span>
+      <strong className="font-semibold text-blue-100">Base de Datos:</strong> PostgreSQL ejecutándose como contenedor Docker en el servidor, con volúmenes persistentes para garantizar la integridad de los datos. Todas las aplicaciones backend se conectan a esta instancia centralizada.
+    </span>
+  </li>
+  <li>
+    <span>
+      <strong className="font-semibold text-blue-100">Networking y Seguridad:</strong> Cloudflare Tunnel gestiona el acceso a través del dominio mimarca.pe, proporcionando SSL/TLS automático y protección DDoS. Cada servicio tiene su subdominio dedicado y las comunicaciones internas entre contenedores utilizan la red Docker privada.
+    </span>
+  </li>
+  <li>
+    <span>
+      <strong className="font-semibold text-blue-100">Flujo de Autenticación:</strong> El usuario inicia sesión en el Frontend, que solicita un token al OAuth2 Server. El token es almacenado en el cliente y enviado en cada petición al Backend. El Backend valida el token con el OAuth2 Server antes de procesar cualquier operación administrativa. Las rutas públicas (catálogo) no requieren autenticación.
+    </span>
+  </li>
+  <li>
+    <span>
+      <strong className="font-semibold text-blue-100">Gestión de Imágenes:</strong> Cuando un administrador sube una imagen de producto desde el panel de administración, el Frontend la envía al Image Server, que retorna una URL. Esta URL se almacena en la base de datos asociada al producto y es servida públicamente a través del catálogo.
+    </span>
+  </li>
+</ul>
+</AppSolution>
+
+</Section>
+
+<Border className="my-8" />
+
+<Section id="technologies">
+
+## Technologies
+
+<FadeInStagger className="flex gap-4 mt-6 flex-wrap" faster once>
+  {technologies.map((tech) => (
+    <FadeIn key={tech.name}>
+      <div className="mt-auto">
+        <Image
+          src={tech.image}
+          className="object-contain rounded-md m-auto"
+          alt=""
+          height={64}
+          width={64}
+          style={{
+            width: 64,
+            height: 64,
+          }}
+        />
+        <h4 className="text-sm font-semibold tracking-tight text-[#525df3] text-center rounded-full w-min px-2 m-2 mx-auto">{tech.name}</h4>
+      </div>
+    </FadeIn>
+  ))}
+</FadeInStagger>
+
+</Section>
+
+</Container>

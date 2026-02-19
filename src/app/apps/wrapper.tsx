@@ -13,7 +13,7 @@ export default async function AppsLayout({ appData, children }: { appData: App; 
           <Section id="about">
             <FadeInStagger once>
               <FadeIn>
-                <AppIntro eyebrow="Case Study" title={appData.title}>
+                <AppIntro eyebrow="Proyecto" title={appData.title}>
                   <p>{appData.description}</p>
                 </AppIntro>
               </FadeIn>
@@ -22,24 +22,28 @@ export default async function AppsLayout({ appData, children }: { appData: App; 
                   <div className="mx-auto max-w-5xl">
                     <dl className="grid grid-cols-1 text-sm text-gray-500 sm:mx-0 sm:grid-cols-3">
                       <div className="px-6 py-4 sm:border-l border-gray-500/20">
-                        <dt className="font-semibold text-blue-100">Industry</dt>
+                        <dt className="font-semibold text-blue-100">Industria</dt>
                         <dd>{appData.industry}</dd>
                       </div>
                       <div className="px-6 py-4 sm:border-l border-gray-500/20">
-                        <dt className="font-semibold text-blue-100">Year</dt>
+                        <dt className="font-semibold text-blue-100">Año</dt>
                         <dd>
                           <time dateTime={appData.date.split('-')[0]}>{appData.date.split('-')[0]}</time>
                         </dd>
                       </div>
                       <div className="px-6 py-4 sm:border-l border-gray-500/20">
-                        <dt className="font-semibold text-blue-100">Service</dt>
+                        <dt className="font-semibold text-blue-100">Servicio</dt>
                         <dd>{appData.service}</dd>
                       </div>
                     </dl>
                   </div>
                 </div>
                 <div className="p-4 @lg:p-12 @3xl:p-24 @6xl:p-32 app-gradient-bg">
+                  <a href={appData.url} target="_blank" rel="noopener noreferrer">
+
                   <Image src={appData.image} alt="" className="m-auto" sizes="(min-width: 1216px) 76rem, 100vw" priority />
+                  </a>
+
                 </div>
               </FadeIn>
             </FadeInStagger>
@@ -49,7 +53,7 @@ export default async function AppsLayout({ appData, children }: { appData: App; 
         <FadeIn>{children}</FadeIn>
       </article>
 
-      {moreApps.length > 0 && <PageLinks pages={moreApps} />}
+      {/* {moreApps.length > 0 && <PageLinks pages={moreApps} />} */}
     </div>
   );
 }

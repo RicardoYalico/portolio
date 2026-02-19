@@ -1,5 +1,5 @@
 'use client';
-import { ChromeClose, Ellipsis, FavIcon, GitCompare, Leetcode, NextConfig, ReactIcon, Svelte, UntoggledSidebar } from '@/icons';
+import { ChromeClose, Ellipsis, FavIcon, GitCompare, Leetcode, NextConfig, ReactIcon, Svelte, UntoggledSidebar, AngularIcon } from '@/icons';
 import { TabData, selectCurrentTab, selectTabs, tabsSlice, useDispatch, useSelector } from '@/lib/redux';
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
@@ -9,10 +9,12 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { mergeRefs } from 'react-merge-refs';
 
 const fileType = {
+  ['angular' as string]: <AngularIcon />,
   ['react' as string]: <ReactIcon />,
   ['about' as string]: <FavIcon />,
   ['next' as string]: <NextConfig />,
   ['svelte' as string]: <Svelte />,
+  ['leetcode' as string]: <Leetcode />,
   ['leetcode' as string]: <Leetcode />,
 };
 

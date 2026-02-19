@@ -34,6 +34,7 @@ import Leetcode from './leetcode';
 import Lib from './lib';
 import LibOpen from './lib-open';
 import LogIcon from './log-icon';
+import AngularIcon from './angular-icon';
 import NewFile from './new-file';
 import NewFolder from './new-folder';
 import Next from './next';
@@ -74,6 +75,7 @@ import WorkExperience from './work-experience';
 export {
   AboutMe,
   Accounts,
+  AngularIcon,
   App,
   AppOpen,
   Archive,

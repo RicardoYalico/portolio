@@ -2,12 +2,12 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "npm i ts-node -D && ts-node ./src/lib/generateLeetcodeMdx.ts && next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint"
+},
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@mdx-js/loader": "^2.3.0",

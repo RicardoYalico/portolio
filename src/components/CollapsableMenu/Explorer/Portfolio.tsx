@@ -1,6 +1,7 @@
 import { FadeIn, FadeInStagger } from '@/components';
 import {
   AboutMe,
+  AngularIcon,
   App,
   AppOpen,
   BottomLeftArrow,
@@ -62,6 +63,7 @@ const staticFiles = [
 
 const fileType = {
   ['react' as string]: <ReactIcon />,
+  ['angular' as string]: <AngularIcon />,
   ['typescript' as string]: <Tsx />,
   ['next' as string]: <NextConfig />,
   ['svelte' as string]: <Svelte />,
@@ -112,12 +114,31 @@ export default function Portfolio({ allApps, allLeetcode }: { allApps: MDXEntry<
             <File name="about_me.ts" icon={<FavIcon />} url="/" indent={1} sections={pathname === '/' ? sections : []} />
           </Folder>
           <Folder name="src" openIcon={<SrcOpen />} closedIcon={<Src />} indent={0} segmentActive={false}>
-{/*             <Folder name="my work" openIcon={<AppOpen />} closedIcon={<App />} indent={1} segmentActive={segments[0] === 'apps'}>
-              {allApps.map((app) => (
-                <File key={app.pathname} name={app.title} icon={fileType[app.framework]} url={app.pathname} indent={2} sections={pathname === app.pathname ? sections : []} />
-              ))}
-            </Folder>
-            <Folder name="leetcode" openIcon={<LibOpen />} closedIcon={<Lib />} indent={1} segmentActive={segments[0] === 'leet-code'}>
+          {/* LO DE ABAJO SIRVE PARA FILTRAR QUE MOSTRAR SEGUN EL NOMBRE DE LA CARPETA*/}  
+<Folder
+  name="apps"
+  openIcon={<AppOpen />}
+  closedIcon={<App />}
+  indent={1}
+  segmentActive={segments[0] === 'apps'}
+>
+  {allApps
+    .filter(app =>
+      app.pathname.includes('glossy') 
+      // || app.pathname.includes('financetelli')
+    )
+    .map((app) => (
+      <File
+        key={app.pathname}
+        name={app.title}
+        icon={fileType[app.framework]}
+        url={app.pathname}
+        indent={2}
+        sections={pathname === app.pathname ? sections : []}
+      />
+    ))}
+</Folder>
+            {/*<Folder name="leetcode" openIcon={<LibOpen />} closedIcon={<Lib />} indent={1} segmentActive={segments[0] === 'leet-code'}>
               {allLeetcode.map((leetcode) => (
                 <File key={leetcode.pathname} name={leetcode.title} icon={fileType[leetcode.framework]} url={leetcode.pathname} indent={2} sections={pathname === leetcode.pathname ? sections : []} />
               ))}

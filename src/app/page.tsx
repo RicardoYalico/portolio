@@ -10,10 +10,10 @@ export const sections = [
   { index: 0, title: 'Sobre mí', id: 'about-me' },
   { index: 1, title: 'Experiencia', id: 'work-experience' },
   { index: 2, title: 'Habilidades', id: 'skills' },
-  { index: 3, title: 'Contacto', id: 'contact' },
+  { index: 3, title: 'Proyectos', id: 'my-work' },
+  { index: 4, title: 'Contacto', id: 'contact' },
 ];
 
-/*   { index: 3, title: 'Proyectos', id: 'my-work' }, */
 interface contentSection {
   id: string;
   sectionHeader: {
@@ -68,26 +68,6 @@ const content: contentSection[] = [
     sectionHeader: {
       icon: (
         <>
-          <Envelope height="28" width="28" />
-          <span className="bg-blue-400 icon-blur absolute inset-0 -z-10"></span>
-        </>
-      ),
-      title: 'Contacto',
-      description: (
-        <div>
-          Ponte en <span className="text-blue-400">contacto</span> y <span className="text-blue-400">construyamos algo juntos</span>
-        </div>
-      ),
-    },
-    mainContent: <ContactForm />,
-  },
-];
-
-/*   {
-    id: sections[3].id,
-    sectionHeader: {
-      icon: (
-        <>
           <Archive height="28" width="28" />
           <span className="bg-my_work_yellow icon-blur absolute inset-0 -z-10"></span>
         </>
@@ -100,7 +80,26 @@ const content: contentSection[] = [
       ),
     },
     mainContent: <MyWork />,
-  }, */
+  },
+  {
+    id: sections[4].id,
+    sectionHeader: {
+      icon: (
+        <>
+          <Envelope height="28" width="28" />
+          <span className="bg-blue-400 icon-blur absolute inset-0 -z-10"></span>
+        </>
+      ),
+      title: 'Contacto',
+      description: (
+        <div>
+          Ponte en <span className="text-blue-400">contacto</span> y <span className="text-blue-400">construyamos algo juntos</span>
+        </div>
+      ),
+    },
+    mainContent: <ContactForm />,
+  }
+];
 
 export default function Index() {
   return (

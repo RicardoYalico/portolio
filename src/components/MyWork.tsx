@@ -9,6 +9,7 @@ import {
   leenithIos,
   loteriaMonarca,
   oneill,
+  glossy,
   realtorSimplified,
   sierraEcomaderas,
   template1,
@@ -25,69 +26,76 @@ interface Project {
 }
 
 const projects: Project[] = [
+  // {
+  //   href: '/apps/financetelli',
+  //   name: 'Financetelli',
+  //   full: true,
+  //   description: ' Saas platform to manage and track financial goals and spending, with the help of AI.',
+  //   image: { src: financetelli },
+  // },
+  // {
+  //   href: '/apps/oneill',
+  //   name: 'O\'Neill',
+  //   full: true,
+  //   description: ' mobile app for the biggest insurance FMO in the USA to empower agents with tech and speed to sell ACA, PPO, dental, life & more (ios & android)',
+  //   image: { src: oneill },
+  // },  
   {
-    href: '/apps/financetelli',
-    name: 'Financetelli',
+    href: '/apps/glossy',
+    name: 'Glossy',
     full: true,
-    description: ' Saas platform to manage and track financial goals and spending, with the help of AI.',
-    image: { src: financetelli },
-  },
-  {
-    href: '/apps/oneill',
-    name: 'O\'Neill',
-    full: true,
-    description: ' mobile app for the biggest insurance FMO in the USA to empower agents with tech and speed to sell ACA, PPO, dental, life & more (ios & android)',
-    image: { src: oneill },
+    description: ' es una plataforma de e-commerce completa con gestión de productos, carrito de compras e inventario administrativo.',
+    image: { src: glossy },
   },  
-  {
-    href: '/apps/realtor-simplified',
-    name: 'Realtor Simplified',
-    full: false,
-    description: ' saas platform that enables realtors to deploy a professional website in minutes.',
-    image: { src: realtorSimplified },
-  },
-  {
-    href: '/apps/realtor-template-1',
-    name: 'Realtor Template',
-    full: false,
-    description: ' deployable template on the realtor simplified platform.',
-    image: { src: template1 },
-  },
-  {
-    href: '/apps/loteria-monarca',
-    name: 'Loteria Monarca',
-    full: true,
-    description: ' online platform to register and play Loteria Mexicana.',
-    image: { src: loteriaMonarca },
-  },
-  {
-    href: '/apps/sierra-ecomaderas',
-    name: 'Sierra Ecomanderas',
-    full: false,
-    description: ' static website for a wood selling bussiness.',
-    image: { src: sierraEcomaderas },
-  },
-  {
-    href: '/apps/leenith-borges',
-    name: 'Leenith',
-    full: false,
-    description: ' e-commerce website to manage, and sell courses online.',
-    image: { src: leenithBorges },
-  },
-  {
-    href: '/apps/leenith-borges',
-    name: 'Leenith',
-    full: false,
-    description: ' ios app to access and buy courses.',
-    image: { src: leenithIos },
-  },
-  {
-    href: '/apps/impulseux',
-    name: 'ImpulseUX',
-    full: false,
-    description: ' static website for design and development agency.',
-    image: { src: impulseux },
-  },
+  // {
+  //   href: '/apps/realtor-simplified',
+  //   name: 'Realtor Simplified',
+  //   full: false,
+  //   description: ' saas platform that enables realtors to deploy a professional website in minutes.',
+  //   image: { src: realtorSimplified },
+  // },
+  // {
+  //   href: '/apps/realtor-template-1',
+  //   name: 'Realtor Template',
+  //   full: false,
+  //   description: ' deployable template on the realtor simplified platform.',
+  //   image: { src: template1 },
+  // },
+  // {
+  //   href: '/apps/loteria-monarca',
+  //   name: 'Loteria Monarca',
+  //   full: true,
+  //   description: ' online platform to register and play Loteria Mexicana.',
+  //   image: { src: loteriaMonarca },
+  // },
+  // {
+  //   href: '/apps/sierra-ecomaderas',
+  //   name: 'Sierra Ecomanderas',
+  //   full: false,
+  //   description: ' static website for a wood selling bussiness.',
+  //   image: { src: sierraEcomaderas },
+  // },
+  // {
+  //   href: '/apps/leenith-borges',
+  //   name: 'Leenith',
+  //   full: false,
+  //   description: ' e-commerce website to manage, and sell courses online.',
+  //   image: { src: leenithBorges },
+  // },
+  // {
+  //   href: '/apps/leenith-borges',
+  //   name: 'Leenith',
+  //   full: false,
+  //   description: ' ios app to access and buy courses.',
+  //   image: { src: leenithIos },
+  // },
+  // {
+  //   href: '/apps/impulseux',
+  //   name: 'ImpulseUX',
+  //   full: false,
+  //   description: ' static website for design and development agency.',
+  //   image: { src: impulseux },
+  // },
 ];
 
 export default function MyWork() {
@@ -107,6 +115,7 @@ export default function MyWork() {
               </h3>
               <ExpandArrowLink href={project.href} className="before:bg-my_work_yellow " />
             </div>
+            
             <Image
               placeholder="blur"
               className={clsx(
