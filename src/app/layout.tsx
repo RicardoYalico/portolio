@@ -10,6 +10,8 @@ import type { Metadata } from 'next';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
 import Script from "next/script";
+import CookieConsent from "react-cookie-consent";
+import CookieBanner from "@/components/CookieBanner";
 
 export const metadata: Metadata = {
   title: 'Ricardo Yalico Portfolio',
@@ -39,6 +41,18 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           src="https://www.googletagmanager.com/gtag/js?id=G-458P5V9H83"
           strategy="afterInteractive"
         />
+
+        <Script id="consent-mode" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            
+            gtag('consent', 'default', {
+              analytics_storage: 'denied'
+            });
+          `}
+        </Script>
+
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -64,8 +78,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <TogglePortfolio />
         <NavigationChange allPaths={[...allApps, ...allLeetcode]} />
 
-        {/* 👇 puedes eliminar esto */}
-        {/* <Analytics /> */}
+        <CookieBanner />
+
       </body>
     </html>
   </Providers>
