@@ -9,6 +9,7 @@ import glob from 'fast-glob';
 import type { Metadata } from 'next';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: 'Ricardo Yalico Portfolio',
@@ -31,23 +32,42 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const allLeetcode = await loadLeetcode();
 
   return (
-    <Providers>
-      <html lang="en">
-        <body className="bg-dark_bg min-h-screen max-h-screen flex flex-col scroll-smooth">
-          <Toaster />
-          <TopBar />
-          <main className="flex-1 flex overflow-hidden relative">
-            <ActivityBar sections={allSections} allApps={allApps} allLeetcode={allLeetcode} />
-            <div className="flex w-full flex-col overflow-hidden">
-              <TabsContainer /> {children}
-            </div>
-          </main>
-          <BottomBar />
-          <TogglePortfolio />
-          <NavigationChange allPaths={[...allApps, ...allLeetcode]} />
-          <Analytics />
-        </body>
-      </html>
-    </Providers>
+  <Providers>
+    <html lang="en">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-458P5V9H83"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-458P5V9H83', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </head>
+
+      <body className="bg-dark_bg min-h-screen max-h-screen flex flex-col scroll-smooth">
+        <Toaster />
+        <TopBar />
+        <main className="flex-1 flex overflow-hidden relative">
+          <ActivityBar sections={allSections} allApps={allApps} allLeetcode={allLeetcode} />
+          <div className="flex w-full flex-col overflow-hidden">
+            <TabsContainer /> {children}
+          </div>
+        </main>
+        <BottomBar />
+        <TogglePortfolio />
+        <NavigationChange allPaths={[...allApps, ...allLeetcode]} />
+
+        {/* 👇 puedes eliminar esto */}
+        {/* <Analytics /> */}
+      </body>
+    </html>
+  </Providers>
   );
 }
